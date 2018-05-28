@@ -23,9 +23,9 @@ The app will (by using themoviedb.org API):
 More details can be found here: [Popular Movies App Implementation Guide](https://docs.google.com/document/d/1ZlN1fUsCSKuInLECcJkslIqvpKlP7jWL2TP9m6UiA6I/pub?embedded=true#h.bmztf99oydcp)
 
 ## IMPORTANT notes about how to use the API key
-Create file "keys.xml" in the 'values' folder and add the following key to it:
+Create file "keys.xml" in the 'values' folder and add the following key to it:<br/>
 `<string name="api_key">api_key_goes_here</string>`
 
 ## Resources used:
-https://icons8.com/icon/set/not%20connected/material
-Stackoverflow when stuck with Retrofit
+* https://icons8.com/icon/set/not%20connected/material
+* Stackoverflow when stuck with Retrofit, adapters, deserialization, etc.
