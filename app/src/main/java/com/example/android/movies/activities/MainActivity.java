@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -35,7 +36,6 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private String criterion;
-    private String criterionLabel;
 
     @BindView(R.id.recycler_view)
     RecyclerView mMovieRecyclerView;
@@ -63,9 +63,20 @@ public class MainActivity extends AppCompatActivity {
         mMovieAdapter = new MoviesAdapter(mMovieList, this);
 
         mMovieRecyclerView.setAdapter(mMovieAdapter);
-        mMovieRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        mMovieRecyclerView.setLayoutManager(new GridLayoutManager(this, numberOfColumns()));
 
         fetchMovies();
+    }
+
+    private int numberOfColumns() {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        //todo: you can change this divider to adjust the size of the poster
+        int widthDivider = 400;
+        int width = displayMetrics.widthPixels;
+        int nColumns = width / widthDivider;
+        if(nColumns < 2) return 2;
+        return nColumns;
     }
 
 
@@ -87,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setCriterionLabel() {
-        criterionLabel = Utilities.getCriterionLabel(criterion, this);
+        String criterionLabel = Utilities.getCriterionLabel(criterion, this);
         setTitle(getString(R.string.app_name) + ": " + criterionLabel);
     }
 

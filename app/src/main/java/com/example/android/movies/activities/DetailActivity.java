@@ -18,16 +18,20 @@ import butterknife.ButterKnife;
 
 public class DetailActivity extends AppCompatActivity {
 
-    Movie currentMovie;
+    private Movie currentMovie;
 
     @BindView(R.id.movie_rating)
     RatingBar mRatingBar;
+
     @BindView(R.id.movie_original_title)
     TextView tvOriginalTitle;
+
     @BindView(R.id.movie_releasedate)
     TextView tvReleaseDate;
+
     @BindView(R.id.movie_synopsis)
     TextView tvSynopsis;
+
     @BindView(R.id.movie_poster)
     ImageView ivMoviePoster;
 
